@@ -1,49 +1,56 @@
 ﻿using System;
 
-//function that prints out score and options
-//read line for option input
-//function that prints hand animations
-//read line to continue
-//function? to print win or lose
-
-//inside a while loop
-//user inputs option
-//computer option randomly generated
-//the two compared
-//logic assigns a point or doesn't
-//after while loop display victory/defeat message
-//program ends
 
 void Main()
 {
     int playerScore = 0;
     int computerScore = 0;
 
-    Console.WriteLine($@"
-    ---------------------------
-    | Player: {playerScore} | Computer: {computerScore} |
-    ---------------------------
-    What would you like to throw?
-    1) Rock
-    2) Paper
-    3) Scissors
-    ");
+    while (playerScore < 3 && computerScore < 3)
+    {
+        Console.WriteLine($@"
+        ---------------------------
+        | Player: {playerScore} | Computer: {computerScore} |
+        ---------------------------
+        What would you like to throw?
+        1) Rock
+        2) Paper
+        3) Scissors
+        ");
 
-    int playerChoice = int.Parse(Console.ReadLine());
+        int playerChoice = int.Parse(Console.ReadLine());
 
-    int computerChoice = new Random().Next(1, 4);
+        int computerChoice = new Random().Next(1, 4);
 
-    showHand(playerChoice);
+        showHand(playerChoice);
 
-    Console.WriteLine("    VS");
+        Console.WriteLine("    VS");
 
-    showHand(computerChoice);
+        showHand(computerChoice);
+
+        if ((playerChoice == 1 && computerChoice == 3) || (playerChoice == 2 && computerChoice == 1) || (playerChoice == 3 && computerChoice == 2))
+        {
+            playerScore++;
+        }
+        else if (playerChoice == computerChoice)
+        {
+            playerScore += 0;
+        }
+        else
+        {
+            computerScore++;
+        }
 
 
+    }
 
+    Console.WriteLine(playerScore == 3 ? "*** YOU WIN!!! ***" : "*** YOU LOSE ***");
 }
 
 Main();
+
+
+
 
 void showHand(int choice)
 {
