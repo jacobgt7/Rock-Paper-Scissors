@@ -31,6 +31,53 @@ void Main()
 
     int playerChoice = int.Parse(Console.ReadLine());
 
+    int computerChoice = new Random().Next(1, 4);
+
+    showHand(playerChoice);
+
+    Console.WriteLine("    VS");
+
+    showHand(computerChoice);
+
+
+
 }
 
 Main();
+
+void showHand(int choice)
+{
+    if (choice == 1)
+    {
+        Console.WriteLine(@"
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+        ");
+    }
+    else if (choice == 2)
+    {
+        Console.WriteLine(@"
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+        ");
+    }
+    else if (choice == 3)
+    {
+        Console.WriteLine(@"
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+        ");
+    }
+}
